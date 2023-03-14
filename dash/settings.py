@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'order_past',
+    'home',
 ]
 
 MIDDLEWARE = [
@@ -80,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'dash_db',
         'USER': 'postgres',
-        'PASSWORD': '054Ibiza',
+        'PASSWORD': 'khouloud123',
         'HOST': 'localhost',
         'PORT': '5432',
     }

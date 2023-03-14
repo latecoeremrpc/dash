@@ -27,7 +27,11 @@
     <!-- Custom CSS -->
     <!-- <link href="../assets/libs/flot/css/float-chart.css" rel="stylesheet" /> -->
     <link href="{% static 'assets/libs/flot/css/float-chart.css'%}" rel="stylesheet" />
+    <link href="{% static 'assets/libs/select2/dist/css/select2.min.css' %}" rel="stylesheet" />
     
+    <!-- Checkbox CSS -->
+    <link href="{% static 'dist/css/checkbox.css'%}" rel="stylesheet" />
+
     <!-- Custom CSS -->
     <link href="{% static 'dist/css/style.min.css'%}" rel="stylesheet" />
     
@@ -177,7 +181,7 @@
                     class="form-control"
                     placeholder="Search &amp; enter"
                   />
-                  <a class="srh-btn"><i class="mdi mdi-window-close"></i></a>
+                  <!-- <a class="srh-btn"><i class="mdi mdi-window-close"></i></a> -->
                 </form>
               </li>
             </ul>
@@ -703,6 +707,7 @@
     <script src="{% static 'dist/js/sidebarmenu.js' %}"></script>
     <!--Custom JavaScript -->
     <script src="{% static 'dist/js/custom.min.js' %}"></script>
+    <script src="{% static 'assets/libs/select2/dist/js/select2.min.js' %}"></script>
     <!--This page JavaScript -->
     <!-- <script src="{% static 'dist/js/pages/dashboards/dashboard1.js' %}"></script> -->
     <!-- Charts js Files -->
@@ -714,6 +719,12 @@
     <script src="{% static 'assets/libs/flot/jquery.flot.crosshair.js' %}"></script>
     <script src="{% static 'assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js' %}"></script>
     <script src="{% static 'dist/js/pages/chart/chart-page-init.js' %}"></script>
+
+    <!-- Scripts for select2 multiselect -->
+    <script>
+      $(document).ready(function() {
+       $('.select2').select2();});
+    </script> 
   </body>
 </html>
 
