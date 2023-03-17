@@ -30,7 +30,6 @@ def upload_files(request):
     file_cepc=r'C:\Users\khouloud\Documents\PFE\data\order_past_input\CEPC_'+format(current_year)+format(current_week)+'.XLSX'
     
 
-    #directory_tcurr=glob.glob(r"\\centaure\Extract_SAP\SE16N-TCURR\*")
     directory_tcurr=glob.glob(r"C:\Users\khouloud\Documents\PFE\data\order_past_input\TCURR\*")
     tcurr_file=max(directory_tcurr,key=os.path.getmtime)
 
@@ -95,7 +94,8 @@ def home(request):
         year=request.POST.getlist('year')
         week=request.POST.getlist('week')
         profit_center=request.POST.getlist('profit_center')
-
+    current_week=datetime.datetime.now().isocalendar().week
+    current_year=datetime.datetime.now().isocalendar().year
     #Get Data from DB
     order_past_per_divsion=Order_past_per_divsion.objects.all().filter(year=current_year,week=current_week)
     details_order_past_per_divsion=order_past_per_divsion.aggregate( Sum('price'),Sum('count') ) 
@@ -111,6 +111,9 @@ def home(request):
 
     # select count(*) from Order_files
     count=Order_files.objects.all().count()
+    cost=Order_files.objects.aggregate( Sum('price_euro'))
+
+
 
     
     
@@ -128,7 +131,7 @@ def home(request):
     'order_past_per_errors':order_past_per_errors,
     'details_order_past_per_errors':details_order_past_per_errors,
     'organisations': organisations, 'profits':profits,'divisions':divisions,'range_date':range_date,
-    'count':count,
+    'count':count,'cost':cost,
     }
     )
 

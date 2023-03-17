@@ -26,8 +26,11 @@ SECRET_KEY = 'django-insecure-a@($98lk3o%oxhx7%@5qq5utr57jgu8v^=1clwflk-)rr&qsnc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 
 # Application definition
 
@@ -38,11 +41,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "debug_toolbar",
+
     'order_past',
     'home',
 ]
 
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -50,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'dash.urls'
